@@ -6,7 +6,10 @@ services:
       - 8000:8000
     build:
       context: .
-      dockerfile: /API/Dockerfile
+      dockerfile: ./API/Dockerfile
+    volumes:
+      - ./api/app:/code/app
+
   mongodb:
     image: mongo:latest
     environment:
