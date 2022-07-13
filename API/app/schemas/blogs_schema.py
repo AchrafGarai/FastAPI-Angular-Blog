@@ -3,6 +3,10 @@ def blog_serializer(blog) -> dict:
         "id": str(blog["_id"]),
         "title": blog["title"],
         "description": blog["description"],
+        "completed": blog["completed"],
+        "date": blog["date"],
+        "img" :blog["img"],
+        "author": blog["author"],
     }
 
 def blogs_serializer(blogs) -> list:
