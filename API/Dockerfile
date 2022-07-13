@@ -13,6 +13,7 @@ EXPOSE 8000
 # 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
+ENV PYTHONPATH /code/app
 
 # 
 COPY ./API/app /code/app
