@@ -1,8 +1,6 @@
 from fastapi import APIRouter
-
 from models.blogs_model import Blog
 from config.database import collection_name
-
 from schemas.blogs_schema import blog_serializer,blogs_serializer
 from bson import ObjectId
 
