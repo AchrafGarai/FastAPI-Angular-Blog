@@ -12,4 +12,7 @@ export class BlogService {
     return this.http.get('http://localhost:8000')
   }
 
+  getBlog(id : string){
+    return this.http.get(`http://localhost:8000/${id}`)
+  }
 }

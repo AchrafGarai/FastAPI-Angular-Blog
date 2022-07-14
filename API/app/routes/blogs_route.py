@@ -14,7 +14,7 @@ async def get_blogs():
 
 @blog_api_router.get("/{id}")
 async def get_blog(id: str):
-    return blogs_serializer(collection_name.find_one({"_id": ObjectId(id)}))
+    return blog_serializer(collection_name.find_one({"_id": ObjectId(id)}))
 
 
 # post

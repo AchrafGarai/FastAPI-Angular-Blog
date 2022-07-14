@@ -16,5 +16,4 @@ export class BlogListComponent implements OnInit {
       this.Data = data
     })
   }
-
 }
