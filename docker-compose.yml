@@ -10,7 +10,6 @@ services:
       - '/web/node_modules'
     ports:
       - 4200:4200
-      
   api:
     ports:
       - 8000:8000
