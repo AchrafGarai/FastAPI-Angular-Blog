@@ -1,2 +1,13 @@
-<p>blog works!</p>
-{{Data | json}}
+
+<div class="blog">
+  <div class="container">
+      <div class="blog-image">
+      </div>
+            <h1>{{Data.title}}</h1>
+            <p>Author: {{Data.author}}</p>
+            <div class="blog-content">
+            <p [innerHTML]=Data.description></p>  
+            </div>
+  </div>
+</div>
+
