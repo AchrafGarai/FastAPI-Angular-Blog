@@ -5,8 +5,6 @@ import { HttpClient } from '@angular/common/http';
 interface Blog {
   title: string
   description : string
-  completed : boolean
-  date : string
   img : string 
   author : string
 }
@@ -28,11 +26,14 @@ export class BlogService {
 
   createBlog(blog : Blog) {
     const body=JSON.stringify(blog);
+
+    console.log(blog)
+
     console.log(body)
-    return this.http.post('http://localhost:8000',
-      {
-        body
-      },
-    )
+
+
+    this.http.post<Blog>('http://localhost:8000',blog).subscribe((res) => {
+      console.log(res)
+    } )
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from 'src/app/services/blog.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 interface Blog {
   title: string
@@ -16,21 +17,44 @@ interface Blog {
   styleUrls: ['./add-blog.component.css']
 })
 export class AddBlogComponent implements OnInit {
-  Data : any 
-  constructor(private blogService : BlogService) { }
+  
+  myForm: FormGroup 
+
+  // Form state 
+  loading = false 
+  success = false
+  
+  constructor(private blogService : BlogService , private fb : FormBuilder ) { }
 
   ngOnInit(): void {
-    const sampleBlog = {
-      title : "hhhh",
-      description : "hhhh",
-      completed : true,
-      date : "string",
-      img : "hhhh" ,
-      author : "hhhh",
-    }
-    this.blogService.createBlog(sampleBlog).subscribe((data) => {
-      this.Data = data
+    this.myForm = this.fb.group({
+      title : ['', [
+        Validators.required
+      ]],
+      description : ['', [
+        Validators.required
+      ]],
+      img :['', [
+        Validators.required
+      ]],
+      author :['', [
+        Validators.required
+      ]],
     })
+
+    this.myForm.valueChanges.subscribe(console.log)
   }
 
+ async submitHandler() {
+  this.loading =true 
+
+  const formValue = this.myForm.value 
+
+  try {
+    await this.blogService.createBlog(formValue)
+  } catch(err) {
+    console.log(err)
+  }
+  this.loading=false
+ }
 }
