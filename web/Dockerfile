@@ -16,5 +16,5 @@ COPY . ${WORK_DIR}
 
 EXPOSE 4200
 
-CMD ng serve --host 0.0.0.0 --poll
+CMD ng serve --host 0.0.0.0 --poll 100
 
